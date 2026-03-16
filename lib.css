@@ -1,0 +1,528 @@
+#body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    background-image: url("graphics.png");
+    background-repeat: no-repeat;
+}
+
+/* 
+    ========================================
+    Navigation Bar Styles
+    - Static position so it won't follow page scrolling
+    - Stays in its original position in the document flow
+    - Maroon background with shadow for depth
+    - Full width with z-index to stay on top of other content
+    - Flexbox for horizontal alignment
+    ========================================
+*/
+#navbar {
+    background-color: maroon;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Shadow effect to make navbar pop off the page */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
+    
+}
+
+/* 
+    ========================================
+    Header Container Styles
+    - Flex container for horizontal layout
+    - Aligns items to the start (top)
+    - Gap between child elements
+    ========================================
+*/
+#header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+/* 
+    ========================================
+    Header Logo Styles
+    - Sets height and maintains aspect ratio
+    - Logo displayed in the navbar
+    ========================================
+*/
+#header-logo {
+    height: 80px;
+    width: auto;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+/* 
+    ========================================
+    Header Text Container Styles
+    - Container for all header text elements
+    - Stacks text elements vertically
+    - Positioned absolutely for precise placement
+    ========================================
+*/
+#header-text,
+#header-text2,
+#header-text3 {
+    text-align: left;
+    margin: 0;
+    position: absolute;
+    left: 120px;
+    color: white;
+    
+}
+
+/* 
+    ========================================
+    Header Text (Main) Styles
+    - Primary heading text
+    - Positioned at the top of the text stack
+    ========================================
+*/
+#header-text {
+    top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 
+    ========================================
+    Header Text 2 Styles
+    - Secondary heading text
+    - Positioned below header-text
+    ========================================
+*/
+#header-text2 {
+    top: 42px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* 
+    ========================================
+    Header Text 3 Styles
+    - Tertiary heading text
+    - Positioned below header-text2
+    ========================================
+*/
+#header-text3 {
+    top: 60px;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* 
+    ========================================
+    Navigation Buttons Container Styles
+    - Flexbox for horizontal alignment
+    - Positioned to the right side of navbar
+    - Gap between buttons
+    ========================================
+*/
+#nav-buttons {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+    margin-right: 20px;
+    align-items: center;
+    position: relative;
+    left: 800px;
+}
+
+/* 
+    ========================================
+    Navigation Button Styles
+    - Button appearance with padding and border
+    - White text on maroon background
+    - Rounded corners for modern look
+    - Cursor pointer for clickability
+    ========================================
+*/
+.nav-button {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* 
+    ========================================
+    Navigation Button Hover Styles
+    - Changes background to white
+    - Changes text color to maroon
+    - Smooth transition effect
+    ========================================
+*/
+.nav-button:hover {
+    background-color: white;
+    color: maroon;
+    border-color: white;
+}
+
+
+/* 
+    ========================================
+    Library Image Styles
+    - Responsive image that scales with container
+    - Block display for proper spacing
+    - Centered horizontally
+    ========================================
+*/
+#library-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+#about {
+    position: absolute;
+    top: 150px;
+    left: 560px;
+    text-align: justify;
+    width: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: whitesmoke !important;
+    background-image: none !important;
+    opacity: 80% !important;
+    z-index: 100 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: maroon;
+}
+#aboutus {
+    text-align: center;
+}
+
+#mso {
+    position: absolute;
+    top: 600px;
+    left:100px;
+    text-align: justify;
+    width: 750px;
+    padding: 20px;
+    border-radius: 10px;
+     background-color: whitesmoke !important;
+    background-image: none !important;
+    opacity: 80% !important;
+    z-index: 100 !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: maroon;
+
+}
+
+#mso ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+#mso li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+#mso1 {
+    text-align: center;
+}
+
+
+   
+
+#libraries {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.libraries {
+    display: block;
+    padding: 10px 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.libraries:hover {
+    background-color: white;
+    color: maroon;
+    border: 2px solid maroon;
+    transform: translateX(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#olsrv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.olsrv {
+    display: block;
+    padding: 10px 20px;
+    background-color: maroon;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.olsrv:hover {
+    background-color: white;
+    color: maroon;
+    border: 2px solid maroon;
+    transform: translateX(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Toggle Button for Libraries */
+.toggle-btn {
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 101;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: white;
+    color: maroon;
+    border: 2px solid maroon;
+}
+#img-1 {
+    position: absolute;
+    top: 120px;
+    height: 425px;
+    width: auto;
+    left: 200px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px 15px 15px 15px;
+}
+#img-2 {
+    position: absolute;
+    top: 600px;
+    height: 600px;
+    width: auto;
+    left: 900px;
+    border-radius: 15px 15px 15px 15px;
+}
+#img-3 {
+    position: absolute;
+    top: 140px;
+    height: 400px;
+    width: auto;
+    left: 1050px;
+    border-radius: 15px 15px 15px 15px;
+}
+#img-4 {
+    position: absolute;
+    top: 1220px;
+    height: 300px;
+    width: 550x;
+    left: 100px;
+    border-radius: 15px 15px 15px 15px;
+}
+#img-5 {
+    position: absolute;
+    top: 1525px;
+    height: 300px;
+    width: auto;
+    left: 250px;
+    border-radius: 15px 15px 15px 15px;
+}
+#img-6 {
+    position: absolute;
+    top: 1830px;
+    height: 300px;
+    width: auto;
+    left: 100px;
+    border-radius: 15px 15px 15px 15px;
+}
+/* 
+    ========================================
+    Toggle Button for Side Panel
+    - Fixed position on the left side
+    - Visible when panel is collapsed
+    - Maroon background with white text
+    ========================================
+*/
+.toggle-sidebtn {
+    position: fixed;
+    top: 110px;
+    left: 10px;
+    padding: 12px 18px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    opacity: 75%;
+}
+
+.toggle-sidebtn:hover {
+    background-color: white;
+    color: maroon;
+    border: 2px solid maroon;
+}
+
+/* 
+    ========================================
+    Side Panel - Collapsed State
+    - Hidden from view
+    - Width set to 0
+    ========================================
+*/
+.sidebtn-collapsed {
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* 
+    ========================================
+    Side Panel - Expanded State
+    - Visible on the left side
+    - Contains library and online services links
+    ========================================
+*/
+.sidebtn-expanded {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 110px);
+    background-color: rgba(128, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+/* 
+    ========================================
+    Section Title Styles
+    - Headers for Library Services and Online Services
+    ========================================
+*/
+.section-title {
+    color: white;
+    font-size: 16px;
+    margin: 15px 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid maroon;
+    text-align: center;
+}
+
+/* 
+    ========================================
+    Footer Styles
+    - Contact info and social media section
+    ========================================
+*/
+#footer {
+    background-color: maroon;
+    color: white;
+    padding: 40px 20px 20px 20px;
+    margin-top: 1155px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: left;
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid white;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 15px;
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-link:hover {
+    background-color: white;
+    color: maroon;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 12px;
+}
