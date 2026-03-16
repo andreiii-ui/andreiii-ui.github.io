@@ -11,7 +11,7 @@
     <link rel="icon" href="UE_RED_SEAL_09.png">
     
     <!-- External CSS stylesheet for styling -->
-    <link rel="stylesheet" href="c:\Users\dBase\Desktop\UE-Library Website\UE-lib.css">
+    <link rel="stylesheet" href="UE-lib.css">
 </head>
 
 <!-- Main body section with unique ID for styling -->
