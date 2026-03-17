@@ -2,6 +2,7 @@
 <!-- HTML document declaration with English-US language and no-js class for JavaScript fallback -->
 <html lang ="en-US">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Page title displayed in browser tab -->
     <title>University of the East - Department of Library</title>
     
@@ -43,6 +44,7 @@
             </header>
         </nav>    
     </div>
+
 <!-- Toggle Button for Side Panel -->
 <button id="toggle-sidebtn" class="toggle-sidebtn">☰ Menu</button>
 
@@ -57,7 +59,7 @@
     </div>
     <div id="olsrv">
         <h4 class="section-title">Online Services</h4>
-        <a id="btn-opac" class="olsrv" href="https://search.follettsoftware.com/metasearch/rest/v2/users/sso/authenticate">Web OPAC</a>
+        <a id="btn-opac" class="olsrv" href="http://library.ue.edu.ph/">Web OPAC</a>
         <a id="btn-sbsc" class="olsrv" href="https://www.ue.edu.ph/mla/online-subscription-2/">Online Subscription</a>
         <a id="btn-dtbs" class="olsrv" href="https://www.ue.edu.ph/mla/free-online-databases-2/">Free Online Databases</a>
         <a id="btn-odtbs" class="olsrv" href="https://www.ue.edu.ph/mla/open-source-databases-2/">Open Source Databases</a>
@@ -82,17 +84,16 @@
         }
     });
 </script>
-    
+
+
+
     <div id="about">
-        <b>
-            <h4 id="aboutus">About Us</h4>
+            <h3 id="aboutus">About Us</h3>
             The Department of Libraries acquires and catalogs books, non-books, CS-ROMs and audio visual materials, supplementing these with an extensive e-journals collection, to support UE's instructional and research programs. The Department's extensive catalog is for the use of students, faculty members and other members of the UE community. The Department, which is headed by its Director, is composed of the Main Library and the respective libraries of the different Colleges. Under the Department's supervision is the Audiovisual Office.
             The Audio-visual Office makes available to the community equipment such as film, and overhead projectors: DVD, VCD, and other video players; tape recorders and sound systems; and the contents of the media library consisting of sound and video tapes, audio cassettes, graphs posters, transparencies, filmstrips, slides and others.
-        </b>
     </div>
     <div id="mso">
-        <b> 
-            <h4 id="mso1">Mission Statement and Objectives</h4>
+            <h3 id="mso1">Mission Statement and Objectives</h3>
             The primary mission of the University Library is to support the teaching, research, learning, extension service, and cultural endeavors of the University community. It is committed to provide accessible, cost-effective, and innovative information services and programs.
             The general objective is to provide adequate, timely, and relevant information resources and innovative services that support the full spectrum of teaching, learning and research needs of the University community.
             Towards the fulfillment of such an objective, the Library accepts responsibility for the following:
@@ -104,7 +105,6 @@
                 <li>The establishment of appropriate linkages with other libraries and research institutions to enhance scholarly information resources and promote resource sharing;</li>
                 <li>The development and encouragement of qualified and service-oriented Library staff crucial to the provision of high quality services.</li>
             </ul>
-        </b>
     </div>
     
     </div>
@@ -112,40 +112,199 @@
         <img id="img-1" src="library.jpg" alt="lib">
         <img id="img-2" src="graphics-removebg.png" alt="lib1">
         <img id="img-3" src="thinker-removebg-preview.png" alt="lib2">
-        <img id="img-4" src="lubalbati (1).jpg" alt="lib3">
-        <img id="img-5" src="uelib.jpg" alt="lib4">
-
+<div id="libn" class="libn-container">
+        <button class="libn-prev">&#10094;</button>
+        <button class="libn-next">&#10095;</button>
+        <div class="libn-track">
+        <img id="img-4" src="lubalbati (1).jpg" alt="lualhati library">
+        <img id="img-5" src="4th.jpg" alt="acquisition">
+        <img id="img-6" src="circ.jpg" alt="circulation">
+        <img id="img-7" src="pc.jpg" alt="pc area">
+        <img id="img-8" src="uelib.jpg" alt="reference">
+        <img id="img-9" src="theses.jpg" alt="theses area">
+        <img id="img-10" src="shs.jpg" alt="shs area">
+        </div>
+</div>
+        </div>
     </div>
-
-
-    <!-- Footer with Contact Info and Social Media -->
-    <footer id="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p><strong>UE Main Library</strong></p>
-                <p>University of the East</p>
-                <p>2219 C.M. Recto Avenue, Brgy. 404, Zone 41, Sampaloc, Manila, Philippines</p>
-                <p>Phone: (02) 1234-5678</p>
-                <p>Email: library@ue.edu.ph</p>
-            </div>
-            <div class="footer-section">
-                <h4>Library Hours</h4>
-                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-                <p>Saturday: 8:00 AM - 5:00 PM</p>
-                <p>Sunday: Closed</p>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-media">
-                    <a href="https://www.facebook.com/UELibrary" target="_blank" class="social-link">Facebook</a>
-                </div>
+    
+    <!-- Carousel Modal for libn images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <img class="modal-content" id="modalImg">
+        <div class="caption" id="caption"></div>
+    </div>
+    
+    <div id="body-info">
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><strong>UE Main Library</strong></p>
+            <p>University of the East</p>
+            <p>2219 C.M. Recto Avenue, Brgy. 404, Zone 41, Sampaloc, Manila, Philippines</p>
+            <p>Phone: (02) 1234-5678</p>
+            <p>Email: library@ue.edu.ph</p>
+        </div>
+        <div class="footer-section">
+            <h4>Library Hours</h4>
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturday: 8:00 AM - 5:00 PM</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-media">
+                <a href="https://www.facebook.com/UELibrary" target="_blank" class="social-link">Facebook</a>
             </div>
         </div>
+    </div>
+    <!-- Slim Footer - Copyright only -->
+    <footer id="footer">
         <div class="footer-bottom">
             <p>&copy; 2026 University of the East - Department of Libraries. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        // libn inline slider
+        const libnContainer = document.querySelector('.libn-container');
+        const libnTrack = libnContainer.querySelector('.libn-track');
+        const libnPrev = libnContainer.querySelector('.libn-prev');
+        const libnNext = libnContainer.querySelector('.libn-next');
+        const sliderImages = libnTrack.querySelectorAll('img');
+        const imageWidth = libnContainer.offsetWidth / 1.95; // 3 visible images
+        let slideIndex = 0;
+
+        function updateSlider() {
+            const translateX = -slideIndex * imageWidth;
+            libnTrack.style.transform = `translateX(${translateX}px)`;
+        }
+
+        libnPrev.addEventListener('click', () => {
+            slideIndex = Math.max(0, slideIndex - 1);
+            updateSlider();
+        });
+
+        libnNext.addEventListener('click', () => {
+            const maxIndex = sliderImages.length - 3; // 3 visible
+            slideIndex = Math.min(maxIndex, slideIndex + 1);
+            updateSlider();
+        });
+
+        // Resize handler with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateSlider, 250);
+        });
+
+        // Initial position
+        updateSlider();
+
+        // Carousel modal for libn images (existing)
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const captionText = document.getElementById('caption');
+        const closeSpan = document.querySelector('.close');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        // sliderImages already defined above for shared use
+
+        const images = Array.from(sliderImages).map((img, index) => ({
+            src: img.src,
+            alt: img.alt || img.src.split('/').pop()
+        }));
+
+        let currentIndex = 0;
+        let startX = 0;
+        let isDragging = false;
+
+        function showImage(index) {
+            currentIndex = (index + images.length) % images.length;
+            modalImg.src = images[currentIndex].src;
+            captionText.textContent = images[currentIndex].alt;
+        }
+
+        // Open from thumbnail click
+        sliderImages.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                showImage(currentIndex);
+                modal.style.display = 'block';
+            });
+        });
+
+        // Navigation
+        nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+        prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+
+        // Keyboard
+        document.addEventListener('keydown', (e) => {
+            if (modal.style.display !== 'block') return;
+            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+            if (e.key === 'Escape') modal.style.display = 'none';
+        });
+
+        // Close
+        closeSpan.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
+        });
+
+        // Touch/Mouse swipe
+        const modalContent = document.querySelector('.modal-content');
+        modalContent.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+        modalContent.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+        modalContent.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) showImage(currentIndex + 1);
+                else showImage(currentIndex - 1);
+            }
+            isDragging = false;
+        });
+
+        // Mouse drag (desktop fallback)
+        modalContent.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            modalContent.style.cursor = 'grabbing';
+        });
+        modalContent.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+        modalContent.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            const endX = e.clientX;
+            const diffX = startX - endX;
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0) showImage(currentIndex + 1);
+                else showImage(currentIndex - 1);
+            }
+            isDragging = false;
+            modalContent.style.cursor = 'grab';
+        });
+        modalContent.addEventListener('mouseleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                modalContent.style.cursor = 'grab';
+            }
+        });
+        modalContent.style.cursor = 'grab';
+    </script>
+
 </body>
 </html>
+
