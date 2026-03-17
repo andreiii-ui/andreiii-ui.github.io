@@ -1,10 +1,33 @@
 #body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0 0 50px 0;
     background-color: whitesmoke;
     background-image: url("graphics.png");
     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+
+#body-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 1600px auto 60px auto;
+    padding: 30px;
+    max-width: 1200px;
+    background: rgba(128, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 1800px;
+}
+
+.body-info-section {
+    flex: 1;
+    max-width: 320px;
 }
 
 /* 
@@ -343,38 +366,70 @@
     left: 1050px;
     border-radius: 15px 15px 15px 15px;
 }
-#img-4 {
-    position: absolute;
+#libn.libn-container {
+    position: relative;
     top: 1220px;
-    height: 300px;
-    width: 550x;
-    left: 100px;
-    border-radius: 15px 15px 15px 15px;
+    left: 130px;
+    width: 1000px;
+    height: 350px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    margin-bottom: 50px;
+    overflow: hidden;
 }
-#img-5 {
+
+.libn-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    gap: 20px;
+}
+
+.libn-track img {
+    flex: 0 0 calc(33.333% - 13.34px);
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 5px 13px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    will-change: transform;
+}
+
+.libn-prev, .libn-next {
     position: absolute;
-    top: 1525px;
-    height: 300px;
-    width: auto;
-    left: 250px;
-    border-radius: 15px 15px 15px 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(128, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 11;
+    transition: all 0.3s ease;
 }
-#img-6 {
-    position: absolute;
-    top: 1830px;
-    height: 300px;
-    width: auto;
-    left: 100px;
-    border-radius: 15px 15px 15px 15px;
+
+.libn-prev {
+    left: 10px;
 }
-/* 
-    ========================================
-    Toggle Button for Side Panel
-    - Fixed position on the left side
-    - Visible when panel is collapsed
-    - Maroon background with white text
-    ========================================
-*/
+
+.libn-next {
+    right: 10px;
+}
+
+.libn-prev:hover, .libn-next:hover {
+    background-color: white;
+    color: maroon;
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+
 .toggle-sidebtn {
     position: fixed;
     top: 110px;
@@ -389,8 +444,8 @@
     z-index: 1001;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    opacity: 75%;
 }
+
 
 .toggle-sidebtn:hover {
     background-color: white;
@@ -406,12 +461,15 @@
     ========================================
 */
 .sidebtn-collapsed {
-    width: 0;
-    overflow: hidden;
-    padding: 0;
-    opacity: 0;
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
     transition: all 0.3s ease;
 }
+
 
 /* 
     ========================================
@@ -421,19 +479,42 @@
     ========================================
 */
 .sidebtn-expanded {
-    position: fixed;
-    top: 100px;
+    position: fixed !important;
+    top: 110px;
     left: 0;
     width: 250px;
-    height: calc(100vh - 110px);
-    background-color: rgba(128, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 5px;
+    height: 70vh;
+    background-color: rgba(128, 0, 0, 0.95);
+    border-radius: 0 12px 12px 0;
+    padding: 20px;
     overflow-y: auto;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 0 30px rgba(0, 0, 0, 0.6);
     z-index: 999;
     transition: all 0.3s ease;
 }
+
+
+
+.libraries.non-click, .olsrv.non-click {
+    pointer-events: none;
+    cursor: default;
+}
+
+.libraries, .olsrv {
+    display: block;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.libraries:hover, .olsrv:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
 
 /* 
     ========================================
@@ -457,21 +538,107 @@
     ========================================
 */
 #footer {
-    background-color: maroon;
+    background-color: rgba(128, 0, 0, 0.9);
     color: white;
-    padding: 40px 20px 20px 20px;
-    margin-top: 1155px;
+    padding: 8px 20px;
     font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    opacity: 75%;
+}
+#body-info {
     position: relative;
+    top: 400px;
+}
+
+#body-info .footer-section {
+    flex: 1;
+    max-width: 320px;
+    text-align: left;
+    background: maroon;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#body-info .footer-section h4 {
+    font-size: 16px;
+    margin-bottom: px;
+    border-bottom: 2px solid rgba(128, 0, 0, 0.8);
+    padding-bottom: 6px;
+    color: white;
+}
+
+#body-info .footer-section p {
+    margin: 6px 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: white;
 }
 
 .footer-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 30px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-section {
+    text-align: left;
+}
+
+.footer-section h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    display: inline-block;
+    color: white;
+}
+
+.footer-section p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    color: black;
+}
+
+.social-link {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-link:hover {
+    background-color: #333;
+    color: white;
+}
+
+.social-link:hover {
+    background-color: white;
+    color: maroon;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin: 0;
+    padding: 4px 0;
+    font-size: 13px;
 }
 
 .footer-section {
@@ -484,9 +651,9 @@
 .footer-section h4 {
     font-size: 18px;
     margin-bottom: 15px;
-    border-bottom: 2px solid white;
     padding-bottom: 8px;
     display: inline-block;
+    color: white;
 }
 
 .footer-section p {
@@ -525,3 +692,185 @@
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 12px;
 }
+
+/* Image Modal Styles for libn images */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+    animation: zoomIn 0.3s ease-in-out;
+    cursor: zoom-out;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 10001;
+    cursor: pointer;
+    background: rgba(128, 0, 0, 0.8);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: #999;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Hover effects for libn images */
+#libn img {
+    transition: all 0.3s ease;
+}
+
+#libn img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 3px solid maroon;
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+    
+    .close {
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Carousel navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(128, 0, 0, 0.8);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: maroon;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.caption {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 18px;
+    bottom: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Swipe cursor */
+.modal-content {
+    cursor: grab !important;
+}
+
+.modal-content:active {
+    cursor: grabbing !important;
+}
+
+/* Responsive carousel */
+@media (max-width: 768px) {
+    .prev, .next {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .prev {
+        left: 10px;
+    }
+    
+    .next {
+        right: 10px;
+    }
+    
+    .caption {
+        font-size: 14px;
+        bottom: 10px;
+    }
+}
+
