@@ -1,0 +1,849 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f3f6fa;
+  margin: 0;
+  color: #333;
+  font-size: 13px;
+  padding-bottom: 20px;
+}
+
+/* === Hover Animation === */
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo span:hover {
+  background: linear-gradient(90deg, #ffb84d, #ff8c1a);
+}
+
+/* === Page Title === */
+.page-title {
+  text-align: center;
+  font-size: 22px;
+  color: #e65100;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* === Top Bar === */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff3e0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin: 0 auto 15px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 95%;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0px;
+}
+
+.controls select,
+.controls input {
+  padding: 6px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+}
+
+#multipleSelect {
+  padding: 0px;
+  margin: 0px;
+  justify-content: space-between;
+  gap: 5px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}
+
+#searchInput {
+  width: 180px;
+  transition: 0.3s;
+}
+
+#searchInput:focus {
+  width: 220px;
+  border-color: #f57b005c;
+  outline: none;
+}
+
+/* === Add Button === */
+.add-btn {
+  background: #f57b005c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #e65100;
+}
+
+/* === Table Container === */
+.table-container {
+  width: 95%;
+  margin: 0 auto;
+  overflow-y: auto;
+  /* scroll inside if content is too big */
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ffe0b2;
+  /* Adjust height to fill until pagination */
+  max-height: calc(90vh - 180px);
+  /* 180px = approx top-bar + pagination + margins */
+  position: relative;
+}
+
+/* === Table === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border: 1px solid #c8e6c9;
+  min-width: 900px;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  /* slightly larger for readability */
+  border: 1px solid #c8e6c9;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+th {
+  background: #ffe0b2;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+tr:nth-child(even) {
+  background: #fff8e1;
+}
+
+tr:hover {
+  background: #fff3e0;
+}
+
+/* Close button inside the form */
+.form-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.form-close:hover {
+  color: #e64a19;
+  transform: scale(1.2);
+}
+
+/* Make sure the form has relative positioning to contain the absolute button */
+#recordForm {
+  position: relative;
+  padding-top: 10px;
+  /* add some space for the close button */
+}
+
+/* === Buttons inside Table === */
+.view-btn,
+.delete-btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 11px;
+  transition: 0.3s;
+}
+
+.view-btn {
+  background: #f57c00;
+}
+
+.delete-btn {
+  background: #d84315;
+}
+
+.view-btn:hover {
+  background: #e65100;
+}
+
+.delete-btn:hover {
+  background: #bf360c;
+}
+
+#deleteSelectedBtn {
+  height: 100%;
+}
+
+/* === Modern Floating Pagination === */
+.pagination {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  /* glassy transparent */
+  backdrop-filter: blur(8px);
+  /* modern blur effect */
+  border-radius: 25px;
+  padding: 5px 8px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* === Pagination Buttons === */
+.pagination button {
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 4px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f57b005c;
+  transition: all 0.3s ease;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination button.active {
+  background: #f57c00;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.pagination button:hover {
+  background: rgba(239, 108, 0, 0.4);
+  color: white;
+  transform: scale(1.1);
+  /* subtle zoom on hover */
+}
+
+
+/* === Modal === */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* === Modal Content === */
+.modal-content {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.modal-content h3 {
+  text-align: center;
+  color: #f57c00;
+  margin-bottom: 12px;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  padding-bottom: 6px;
+}
+
+/* === Field Labels === */
+.modal-content label {
+  display: flex;
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 12.5px;
+  color: #e65100;
+}
+
+/* === Input Fields === */
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 95%;
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 3px;
+  font-size: 12px;
+  background-color: #fafafa;
+  transition: border 0.3s, background 0.3s;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  border-color: #f57b005c;
+  background: #ffffff;
+  outline: none;
+}
+
+/* === Modal Buttons === */
+.modal-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  height: fit-content;
+}
+
+.save-btn {
+  background: #f57c00;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.cancel-btn {
+  background: #9e9e9e;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background: #f57c00;
+}
+
+.cancel-btn:hover {
+  background: #757575;
+}
+
+/* === Page Container === */
+#recordsPageContainer {
+  width: 100%;
+  margin: 0 auto;
+  background: #ffffffcc;
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+/* === Scrollbar Style === */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f57b00a9;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f57c00;
+}
+
+/* === Modal Form Styling for Add/Edit Record === */
+#recordModal .modal-content {
+  width: 90%;
+  max-width: 600px;
+  /* wider to fit all fields nicely */
+  padding: 25px 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+  max-height: 75vh;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#recordModal .modal-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #f57c00;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* === Form Inputs === */
+#recordForm label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+  color: #f57c00;
+  font-size: 13px;
+}
+
+
+
+/* === Textarea Adjustments === */
+#recordForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* === Modal Buttons === */
+#recordForm .modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modal-close {
+  width: 30px;
+  height: 30px;
+  background: #b71c1c;
+  color: white;
+  border: none;
+  border-radius: 20%;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: grey solid 1px;
+}
+
+#recordForm .save-btn,
+#recordForm .cancel-btn {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#recordForm .save-btn {
+  background: #f57c00;
+  color: white;
+  border: none;
+}
+
+#recordForm .save-btn:hover {
+  background: #f57c00;
+}
+
+#recordForm .cancel-btn {
+  background: #9e9e9e;
+  color: white;
+  border: none;
+}
+
+#recordForm .cancel-btn:hover {
+  background: #757575;
+}
+
+.form-container {
+  overflow-y: scroll;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+}
+
+/* === Responsive: make modal scrollable on small screens === */
+@media screen and (max-width: 640px) {
+  #recordModal .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* Top Menu Bar */
+.menu-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #fdaf4157, #ff7b00);
+  padding: 10px 20px;
+  color: white;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.menu-bar .logo a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Menu items */
+.menu-bar .menu-items {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.menu-bar .menu-items li {
+  position: relative;
+}
+
+.menu-bar .menu-items li a {
+  color: #e65100;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.menu-bar .menu-items .dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.menu-bar .menu-items li a:hover {
+  background-color: #ae5801;
+}
+
+/* Make the dropdown parent positioned and high z-index */
+.menu-bar .dropdown {
+  position: relative;
+  /* already needed */
+  z-index: 9999;
+  /* very high to appear above table */
+}
+
+.menu-bar .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #db6e00;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  border-radius: 5px;
+  min-width: 100px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+  /* higher than table */
+}
+
+/* Optional: make sure table container doesn’t create stacking context */
+.table-container {
+  position: relative;
+  /* already set */
+  z-index: 1;
+  /* keep it low */
+}
+
+
+.menu-bar .dropdown-menu li a {
+  display: block;
+  padding: 8px 15px;
+  color: white;
+  font-weight: 200;
+}
+
+.menu-bar .dropdown-menu li a:hover {
+  background-color: #f57b0042;
+}
+
+/* Show dropdown on hover */
+.menu-bar .dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ...existing code... */
+.bookmark-btn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bookmark-btn i {
+  font-size: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bookmark-btn i:hover {
+  transform: scale(1.2);
+  color: #e65100;
+  /* Slightly darker on hover */
+}
+
+.restore-btn {
+  color: rgb(255, 255, 255);
+  background: rgb(71, 113, 71);
+  border-radius: 4px;
+  padding: 3px 6px;
+}
+
+.restore-btn:hover {
+  background: rgb(228, 255, 228);
+  color: black;
+}
+
+/* ...existing code... */
+
+/* === Restore Preview Modal (moved from history.php) === */
+#previewModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+}
+
+#previewContent {
+  background: #fff;
+  width: 92%;
+  max-width: 1100px;
+  height: 60vh;
+  margin: 30px auto;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+#previewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  position: relative;
+
+}
+
+#previewControls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+#previewControls label {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+#previewTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+#previewTable th,
+#previewTable td {
+  border: 1px solid #eee;
+  padding: 8px;
+  vertical-align: top;
+}
+
+#previewTable th {
+  background: #fafafa;
+  text-align: left;
+  font-weight: 600;
+}
+
+#previewTable tr.changed {
+  background: #fff9e6;
+}
+
+#previewFooter {
+  margin-top: 12px;
+  text-align: right;
+  position: relative;
+}
+
+#changedCount {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width:720px) {
+  #previewContent {
+    width: 96%;
+    padding: 12px;
+  }
+
+  #previewTable th,
+  #previewTable td {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
+#previewTableBodyDiv {
+  height: 75%;
+  overflow: scroll;
+}
+
+#previewModal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+#previewContent {
+  background: #fff;
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+#previewCols {
+  display: flex;
+  gap: 12px;
+}
+
+#previewCols>div {
+  flex: 1;
+  max-height: 60vh;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+#previewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#previewFooter {
+  margin-top: 12px;
+  text-align: right;
+}
+
+/* === Field Dropdown === */
+.field-dropdown {
+  position: relative;
+  display: inline-block;
+  margin: 12px 20px;
+}
+
+.field-dropdown button {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 200px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.field-dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 10;
+  min-width: 200px;
+  max-height: 320px;
+  overflow-y: auto;
+  border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.field-dropdown-content label {
+  display: block;
+  padding: 3px 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.field-dropdown-content label:hover {
+  background: #f1f1f1;
+}
+
+.field-dropdown.show .field-dropdown-content {
+  display: block;
+}
+
+.export-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.export-dropdown select {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-weight: 500;
+  cursor: pointer;
+  background: #fff;
+}
+
+.export-dropdown select:hover {
+  border-color: #e65100;
+}
